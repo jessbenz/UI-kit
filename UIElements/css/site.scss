@@ -1,0 +1,872 @@
+﻿@import 'variables.scss';
+@import 'mixins.scss';
+/* To click through to button underneath: */
+/* pointer-events: none; */
+
+body {
+    background-color: #E9E9EB;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 14px;
+    line-height: 1.6em;
+    font-family: 'Open Sans', sans-serif;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    border: 1px solid $input-border-color;
+    @include border-radius(3px);
+    padding: 3px 7px;
+    height: $input-height;
+    margin-bottom: 6px;
+    line-height: 1em;
+}
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+    border-color: $primary-color-1;
+    @include transition(0.3s);
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+}
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+textarea:disabled {
+    border-color: $disabled-color;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn,
+.round-btn {
+    vertical-align: middle;
+    height: auto;
+    padding: 3px 9px 4px 9px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+    background: $primary-color-1;
+    border: 1px solid $primary-color-1; /* if you want a bordered button just change this border colour & make the background white or whatever */
+    color: white;
+    line-height: 1.5em;
+    @include border-radius(4px);
+}
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.btn:hover, .btn:focus {
+    background: $primary-color-1-hover;
+    border-color: $primary-color-1-hover;
+    color: white;
+    @include transition(0.3s);
+    cursor: pointer;
+}
+button:disabled,
+input[type="button"]:disabled,
+input[type="reset"]:disabled,
+input[type="submit"]:disabled,
+.btn.disabled,
+.round-btn.disabled,
+.round-btn:disabled {
+    background: $disabled-color;
+    border-color: $disabled-color;
+    @include opacity(1);
+    cursor: default;
+}
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+.btn:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+a:focus,
+.btn:focus,
+.btn:active {
+    outline: none !important;
+}
+a {
+    color: $primary-color-1;
+}
+a:hover {
+    @include transition(0.3s);
+    cursor: pointer;
+    color: $primary-color-1-hover;
+}
+.input-btn-with-icon {
+    position: relative;
+    display: inline-block;
+    .add-on {
+        position: absolute;
+        color: white;
+        z-index: 1000;
+    }
+    &.right-icon {
+        margin-left: 0;
+        .add-on {
+            right: 5px;
+        }
+        input[type="button"] {
+            padding-right: 34px;
+        }
+    }
+    &.left-icon {
+        margin-right: 0;
+        .add-on {
+            left: 5px;
+        }
+        input[type="button"] {
+            padding-left: 34px;
+        }
+    }
+}
+.input-btn-with-icon .round-btn,
+.round-btn {
+    @include border-radius(100%);
+    width: 2.3em;
+    height: 2.25em;
+    position: relative;
+    .add-on,
+    .glyphicon {
+        position: absolute;
+        top: 50%;
+        margin-top: -0.5em;
+        left: 50%;
+        margin-left: -0.5em;
+        text-align: left;
+        padding: 0;
+        z-index: 1000;
+    }
+}
+.input-btn-with-icon.round-btn {
+    position: relative;
+    background: transparent;
+    .add-on {
+        pointer-events: none;
+    }
+    .add-on,
+    input[type="button"] {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 -1px;
+        height: 100%;
+        &:before {
+            z-index: 1001;
+            position: absolute;
+            top: 50%;
+            margin-top: -0.5em;
+            left: 50%;
+            margin-left: -0.5em;
+        }
+    }
+}
+h1, h2, h3 {
+    margin-top: 0;
+    font-weight: normal;
+    margin-bottom: 0.9em;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2.4em;
+}
+h3 {
+    font-size: 1.6em;
+}
+label {
+    line-height: 1.2em;
+    font-weight: normal;
+    padding-top: 0.4em;
+}
+hr {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+.row {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+    }
+    .chosen-container {
+        width: 100% !important;
+    }
+}
+/* MISC */
+.alert {
+    padding: 8px 10px;
+}
+.box-shadow {
+    @include box-shadow;
+    padding: $container-padding;
+    margin-bottom: 10px;
+}
+.box-flat {
+    @include border-radius(6px);
+    padding: $container-padding;
+    padding-bottom: $container-padding - 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.add-on {
+    @include add-on;
+}
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+    background-color: $primary-color-1;
+    color: white;
+}
+.error {
+    text-align: right;
+    color: $error-color;
+    margin: 5px 0;
+}
+.buttons-right,
+.buttons-left {
+    text-align: right;
+    margin-top: $container-padding;
+}
+.buttons-left {
+    text-align: left;
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"],
+    .btn,
+    .round-btn {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.small-text {
+    font-size: $small-font-size;
+    line-height: 1.4em;
+}
+.lighter-text {
+    color: $lighter-text-color;
+    font-weight: bold;
+}
+.italic-text {
+    font-style: italic;
+}
+.left-icon {
+    margin-right: 10px;
+}
+.right-icon {
+    margin-left: 10px;
+}
+
+/* STYLED CHECKBOX */
+.nice-checkbox,
+.nice-radio {
+    display: inline-block;
+	width: 19px;
+	height: 19px;
+	position: relative;
+    margin-top: 2px;
+    input[type=checkbox],
+    input[type=radio] {
+      @include opacity(0);
+    }
+    label:focus,
+    input:focus {
+        outline: none;
+    }
+    label {
+	    cursor: pointer;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    background: white;
+        margin: 0;
+        padding: 0;
+        border: 2px solid $input-border-color;
+        @include border-radius(3px);
+        &:after {
+            @include glyphicon;
+            color: transparent;
+	        content: "\e013";
+	        position: absolute;
+            top: 1.5px;
+            left: 1px;
+            font-size: 0.85em;
+        }
+        &:hover {
+            border-color: $primary-color-1;
+            @include transition(0.3s);
+        }
+        &:hover::after {
+	        color: #d3d3d3;
+        }
+    }
+    input[type=checkbox]:checked + label:after {
+	    color: $primary-color-1;
+    }
+}
+.nice-radio-with-label span,
+.nice-checkbox-with-label span {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+.nice-radio {
+    label {
+        @include border-radius(100%);
+    }
+    label:after {
+        content: "";
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
+        @include border-radius(100%);
+        display: block;
+        background-color: transparent;
+    }
+    input[type=radio]:not(old):checked + label:after,
+    input[type=radio]:checked + label:after {
+        background-color: $primary-color-1;
+        @include transition(0.2s);
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    min-height: 44px;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    -webkit-box-shadow: 0 0 2px 0px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 2px 0px rgba(0,0,0,.2);
+    box-shadow: 0 0 2px 0px rgba(0,0,0,.2);
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    .navbar-brand {
+        height: 44px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    &.navbar-inverse {
+        background-color: #222;
+        border-color: #080808;
+    }
+    .navbar-nav > li > a {
+        color: black;
+        background-color: rgba(0,0,0,0.1);
+    }
+    &.navbar-inverse .navbar-nav > li > a {
+        color: white;
+        background-color: rgba(0,0,0,0.15);
+    }
+    .navbar-nav > li > a,
+    &.navbar-inverse .navbar-nav > li > a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-left: 2px;
+        &:hover {
+            background-color: $primary-color-1;
+            color: white;
+        }
+    }
+}
+
+/* TITLE BAR WITH SEARCH AND PAGE HEADER */
+.title-bar {
+    h2,
+    form.search input,
+    form.search button,
+    .alert {
+        display: inline-block;
+    }
+    form.search {
+        float: right;
+        margin-top: 6px;
+        .round-btn {
+            font-size: 0.8em;
+            vertical-align: middle;
+            margin-top: 2px;
+        }
+    }
+    .alert {
+        float: right;
+        margin: -7px 20px 0 0;
+        a {
+           display: block;
+        }
+    }
+}
+
+/* 'CHOSEN' SELECT/COMBO-BOX */
+.chosen-container {
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 6px;
+    .chosen-single {
+        height: $input-height;
+        border: 1px solid $input-border-color;
+        @include border-radius(3px);
+        padding: 1px 8px;
+        background: white;
+        box-shadow: none;
+        color: black;
+        text-align: left;
+        &:hover {
+            border-color: $primary-color-1;
+        }
+    }
+    &.chosen-container-single .chosen-single b {
+        position: relative;
+        background: none;
+        &:after {
+            @include glyphicon;
+            content: "\e259";
+            position: absolute;
+            top: 6px;
+            right: 7px;
+            pointer-events: none;
+        }
+    }
+    &.chosen-container-single .chosen-single:hover b:after {
+        color: $primary-color-1;
+    }
+    .chosen-drop {
+        @include box-shadow;
+    }
+    &.chosen-with-drop .chosen-single b:after {
+        content: "\e260";
+    }
+    .chosen-results li.highlighted {
+        background-image: none;
+        background-color: $primary-color-1;
+        @include transition(0.2s);
+    }
+}
+
+/* DATE PICKER */ 
+.ui-widget {
+    font-size: 1em;
+}
+.date {
+    position: relative;
+    .clear-date, datepicker, .glyphicon {
+        cursor: pointer;
+    }
+    .clear-date:hover, .glyphicon:hover {
+        color: $primary-color-1;
+    }
+    .clear-date {
+        @include add-on;
+        position: absolute;
+        left: 0;
+        &:after {
+            @include glyphicon;
+            content: "\e014";
+            font-size: 0.85em;
+            top: -2px;
+        }
+    }
+    .calendar-icon {
+        @include add-on;
+        position: absolute;
+        right: 0;
+    }
+    .datepicker {
+        padding-left: 25px;
+    }
+    .glyphicon {
+        margin-left: -28px;
+    }
+}
+.ui-datepicker {
+    padding: 0;
+    width: auto;
+    @include box-shadow;
+    a:hover,
+    a.ui-state-hover {
+        background-image: none;
+    }
+    .ui-datepicker-header {
+        font-weight: normal;
+        height: 35px;
+        @include border-radius(4px 4px 0 0);
+        border: 0;
+        background-color: $primary-color-1;
+        margin: -1px -1px 0 -1px;
+        .ui-datepicker-title {
+            height: 28px;
+            margin: 0 1.8em;
+        }
+        a.ui-datepicker-prev span,
+        a.ui-datepicker-next span {
+            color: transparent;
+            top: 0;
+            left: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+        .ui-icon {
+            text-indent: 0;
+        }
+        .ui-icon:after {
+            @include glyphicon;
+            background-image: none;
+            color: white;
+            margin-top: -19px;
+            vertical-align: top;
+            font-size: 0.75em;
+            color: white;
+        }
+        a.ui-datepicker-prev .ui-icon::after {
+            content: "\e257";
+        }
+        a.ui-datepicker-next .ui-icon::after {
+            content: "\e258";
+        }
+        a.ui-datepicker-prev,
+        a.ui-datepicker-next {
+            @include border-radius(100%);
+            top: 7px;
+            width: 1.5em;
+            height: 1.5em;
+            border: 1px solid transparent;
+        }
+        a.ui-datepicker-prev {
+            left: 6px;
+        }
+        a.ui-datepicker-next {
+            right: 6px;
+        }
+        a.ui-state-hover,
+        a.ui-datepicker-prev-hover,
+        a.ui-datepicker-next-hover,
+        a.ui-datepicker-prev:hover,
+        a.ui-datepicker-next:hover  {
+            text-decoration: none;
+            top: 7px;
+            border: 0;
+            background-color: transparent;
+            border: 1px solid white;
+            .ui-icon:after {
+                color: white;
+            }
+        }
+        a.ui-datepicker-prev-hover {
+            left: 6px;
+        }
+        a.ui-datepicker-next-hover {
+            right: 6px;
+        }
+        .ui-datepicker-title select {
+            @include opacity(0);
+        }
+        .ui-datepicker-title .chosen-container {
+            margin-top: -1px;
+            margin-bottom: 0;
+        }
+        .ui-datepicker-title .chosen-single {
+            height: 22px;
+            margin: 0 2px;
+            border: 0;
+        }
+        .ui-datepicker-title .chosen-single b:after {
+            font-size: $small-font-size;
+            top: 5px;
+            right: 5px;
+        }
+        .ui-datepicker-title .chosen-single span,
+        .ui-datepicker-title .chosen-drop li {
+            line-height: 1.6em;
+            font-size: $small-font-size;
+            text-align: left;
+        }
+        .ui-datepicker-title .chosen-drop li {
+            padding: 3px 6px;
+        }
+    }
+    table.ui-datepicker-calendar {
+        background-color: $datepicker-body-background;
+        margin: 0 0 2px 0;
+        th {
+            font-weight: normal;
+            font-size: $small-font-size;
+            color: $lighter-text-color;
+        }
+        td {
+            padding: 2px;
+        }
+        td a {
+            padding: 0;
+            line-height: 1.65em;
+        }
+        td a.ui-state-default {
+            background-image: none;
+            border-radius: 100%;
+            width: 2.2em;
+            height: 2.1em;
+            text-align: center;
+            border: 2px solid $datepicker-days-background;
+            background-color: $datepicker-days-background;
+        }
+        td a.ui-state-active {
+            border-color: $primary-color-1;
+            background-color: white;
+        }
+        td a:hover,
+        td a.ui-state-hover {
+            border-color: $primary-color-1;
+            background-color: $primary-color-1;
+            color: white;
+        }
+    }
+}
+
+/* ACCORDION EXPANDER */
+#accordion {
+    margin: 8px 0;
+    .panel {
+        background-color: white;
+        border-color: gray;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        @include border-radius(4);
+        .panel-body {
+            padding-bottom: $container-padding - 5px;
+        }
+    }
+    .collapse {
+      display: none;
+    }
+    .collapse.in {
+      display: block;
+    }
+    .collapsing {
+      position: relative;
+      overflow: hidden;
+      @include transition(0.4s);
+    }
+    a.panel-heading {
+        display: block;
+        padding: 8px $container-padding;
+        text-decoration: none;
+        position: relative;
+        background-color: $panel-header-background;
+        &:hover {
+            color: $primary-color-1;
+            background-color: $panel-header-background-hover;
+            &:after {
+                color: $primary-color-1;
+            }
+        }
+        &:after {
+            @include glyphicon;
+            content:"\e113";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        h4 {
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        &.collapsed {
+            @include border-radius(4px);
+            overflow: hidden;
+            &:after {
+                content:"\e114";
+            }
+        }
+    }
+}
+
+/* TABLES */
+table.styled-table {
+    background-color: white;
+    line-height: 1.35em;
+    width: 100%;
+    th, td {
+        padding: 5px 8px;
+    }
+    thead {
+        th {
+            vertical-align: bottom;
+            background-color: $table-th-background-color;
+            border: 1px solid $table-th-border-color;
+            font-size: $small-font-size;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1.3em;
+            color: $table-th-text-color;
+        }
+    }
+    tbody {
+        td {
+            vertical-align: top;
+            border: 1px solid $table-td-border-color;
+        }
+        tr:nth-child(even) {
+            background-color: $table-alternating-row-color;
+        }
+    }
+}
+.tabletolist {
+    > li span.titles {
+        background-color: $table-th-background-color;
+        border: 1px solid $table-th-border-color;
+        font-size: $small-font-size;
+        text-transform: uppercase;
+        line-height: 1.3em;
+        color: $table-th-text-color;
+    }
+    > li > ul > li:nth-child(even) {
+        background-color: $table-alternating-row-color;
+        border-bottom: 0;
+    }
+    ul > li .row_data  {
+        font-weight: normal !important;
+        line-height: 1.4em;
+    }
+    > li > ul > li.cf {
+        padding: 6px 10px;
+    }
+}
+
+/* TAB CONTROL */
+.tab-control {
+    .nav-tabs {
+        border-bottom: 1px solid $tab-control-border-color;
+        text-align: right;
+        > li {
+            float: none;
+            margin-right: -2px;
+            display: inline-block;
+        }
+        > li > a {
+            background-color: $primary-color-1;
+            color: white;
+            border-color: transparent;
+            padding: 8px 12px;
+        }
+        > li > a:hover {
+            background-color: $primary-color-1-hover;
+        }
+        > li.active > a,
+        > li.active > a:focus,
+        > li.active > a:hover {
+            border: 1px solid $tab-control-border-color;
+            border-bottom-color: transparent;
+            background-color: white;
+            color: black;
+        }
+    }
+    .tab-content {
+        border-top: 0;
+        padding-top: 10px;
+    }
+}
+
+/* PROGRESS BAR */
+.progress {
+    @include border-radius(0);
+    background-color: #D6DADC;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    .progress-bar {
+        background-color: $primary-color-1;
+    }
+}
+
+/* RANGE SLIDER (input type="range") */
+.slider {
+	.slider-track {
+        .slider-selection {
+            background-image: none;
+            background-color: $primary-color-1;
+        }
+        .slider-handle {
+            background-image: none;
+            background-color: white;
+            border: 2px solid #A4ABAE;
+            @include box-shadow;
+        }
+        .slider-track-low,
+        .slider-track-high {
+            background-color: #D6DADC;
+        }
+	}
+}
+
+/* PAGINATION */
+.pagination {
+    .active > a,
+    .active > a:focus,
+    .active > a:hover {
+        background-color: $primary-color-1;
+        border-color: $primary-color-1;
+    }
+    > li > a {
+        color: $primary-color-1;
+        border-color: #E3E3E3;
+        &:hover {
+            background-color: #E3E3E3;
+            border-color: #CACACA;
+        }
+    }
+}
+
+/* LIGHTBOX/MODAL */
+.modal {
+    .modal-header {
+        padding: 10px $container-padding;
+        .close {
+            margin-top: 2px;
+            margin-bottom: 0;
+        }
+        .close:hover {
+            filter: alpha(opacity=100);
+            opacity: 1;
+            background-color: transparent;
+            color: $primary-color-1;
+        }
+    }
+    .modal-footer {
+        padding: 10px $container-padding;
+        button {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .title-bar .alert {
+        display: block;
+        float: none;
+        width: 100%;
+        margin: -10px 0 10px 0;
+        a {
+            display: inline-block;
+        }
+    }
+}

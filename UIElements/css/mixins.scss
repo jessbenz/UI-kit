@@ -1,0 +1,60 @@
+﻿@mixin fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: darkgray;
+    color: white;
+    z-index: 1000;
+    padding: 7px;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin box-shadow {
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+@mixin transition($duration) {
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+
+    -moz-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+
+    -moz-transition-duration: $duration;
+    -webkit-transition-duration: $duration;
+    transition-duration: $duration;
+}
+@mixin add-on {
+    display: inline-block;
+    width: auto;
+    height: 27px;
+    min-width: 16px;
+    padding: 6px 5px;
+    text-align: center;
+}
+@mixin glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+  -moz-opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+}

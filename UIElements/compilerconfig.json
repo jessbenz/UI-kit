@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "css/site.css",
+    "inputFile": "css/site.scss"
+  },
+  {
+    "outputFile": "css/inputTags.css",
+    "inputFile": "css/inputTags.scss"
+  },
+  {
+    "outputFile": "css/input-range-slider.css",
+    "inputFile": "css/input-range-slider.scss"
+  }
+]
