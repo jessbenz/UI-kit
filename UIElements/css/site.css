@@ -11,7 +11,8 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-textarea {
+textarea,
+select {
   border: 1px solid #949494;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -64,6 +65,7 @@ input[type="submit"],
   border: 1px solid #004389;
   /* if you want a bordered button just change this border colour & make the background white or whatever */
   color: white;
+  font-size: 1em;
   line-height: 1.5em;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -94,8 +96,7 @@ input[type="button"]:disabled,
 input[type="reset"]:disabled,
 input[type="submit"]:disabled,
 .btn.disabled,
-.round-btn.disabled,
-.round-btn:disabled {
+.round-btn.disabled {
   background: #BEBEBE;
   border-color: #BEBEBE;
   opacity: 1;
@@ -224,7 +225,8 @@ hr {
 .row input[type="text"],
 .row input[type="password"],
 .row input[type="email"],
-.row textarea {
+.row textarea,
+.row select {
   width: 100%; }
 
 .row .chosen-container {
@@ -504,8 +506,9 @@ hr {
       -moz-osx-font-smoothing: grayscale;
       content: "\e259";
       position: absolute;
-      top: 6px;
+      top: 50%;
       right: 7px;
+      margin-top: -0.5em;
       pointer-events: none; }
   .chosen-container.chosen-container-single .chosen-single:hover b:after {
     color: #004389; }
@@ -804,24 +807,27 @@ table.styled-table {
   table.styled-table tbody tr:nth-child(even) {
     background-color: #ECF0F2; }
 
-.tabletolist > li span.titles {
-  background-color: #E2E8EB;
-  border: 1px solid #C4C4C4;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  line-height: 1.3em;
-  color: #4B4D54; }
-
-.tabletolist > li > ul > li:nth-child(even) {
-  background-color: #ECF0F2;
-  border-bottom: 0; }
-
-.tabletolist ul > li .row_data {
-  font-weight: normal !important;
-  line-height: 1.4em; }
-
-.tabletolist > li > ul > li.cf {
-  padding: 6px 10px; }
+.tabletolist {
+  font-size: 1em !important; }
+  .tabletolist > li span.titles {
+    background-color: #E2E8EB;
+    border: 1px solid #C4C4C4;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    line-height: 1.3em;
+    color: #4B4D54; }
+  .tabletolist > li > ul > li:nth-child(even) {
+    background-color: #ECF0F2;
+    border-bottom: 0; }
+  .tabletolist ul > li .row_data {
+    font-weight: normal !important;
+    line-height: 1.4em;
+    font-size: 1em; }
+  .tabletolist ul > li .row_headers {
+    font-size: 1em !important;
+    font-weight: normal; }
+  .tabletolist > li > ul > li.cf {
+    padding: 6px 10px; }
 
 /* TAB CONTROL */
 .tab-control .nav-tabs {
@@ -918,4 +924,96 @@ table.styled-table {
     margin: -10px 0 10px 0; }
     .title-bar .alert a {
       display: inline-block; } }
+
+@media (max-width: 600px) {
+  .title-bar form.search {
+    float: none;
+    margin-top: -15px; }
+  .title-bar .alert {
+    margin-top: 3px; } }
+
+@media (max-width: 767px) {
+  body {
+    font-size: 17px; }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea,
+  select,
+  .chosen-container .chosen-single,
+  .date .clear-date,
+  .date .calendar-icon {
+    height: 38px; }
+  .chosen-container .chosen-single {
+    padding: 5px 11px; }
+  .ui-datepicker .ui-datepicker-header .ui-datepicker-title .chosen-single {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 24px; }
+    .ui-datepicker .ui-datepicker-header .ui-datepicker-title .chosen-single b::after {
+      top: 50%;
+      right: 7px; }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea {
+    padding-left: 10px;
+    padding-right: 10px; }
+  button, input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  .btn,
+  .round-btn {
+    line-height: 1.6em;
+    padding: 4px 12px 6px 12px; }
+  .input-btn-with-icon .round-btn,
+  .round-btn {
+    width: 2.65em;
+    height: 2.6em; }
+  .title-bar form.search .round-btn {
+    font-size: .9em;
+    margin-top: 0; }
+  .date .clear-date,
+  .date .calendar-icon {
+    min-width: 38px; }
+  .date .clear-date:after {
+    vertical-align: top;
+    top: 50%;
+    margin-top: -0.45em; }
+  .date .calendar-icon {
+    padding: 9px 5px;
+    font-size: 1.1em; }
+  .date .datepicker {
+    padding-left: 38px;
+    padding-right: 34px; }
+  .ui-datepicker .ui-datepicker-header {
+    height: 40px; }
+  .ui-datepicker .ui-datepicker-header .ui-icon::after {
+    margin-top: -23px; }
+  .ui-datepicker table.ui-datepicker-calendar td a {
+    padding: 0.2em;
+    line-height: 1.4em; }
+  .nice-checkbox,
+  .nice-radio {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 5px; }
+    .nice-checkbox label:after,
+    .nice-radio label:after {
+      font-size: 1em;
+      top: 2px;
+      left: 2px; }
+  .add-on {
+    padding-top: 8px; }
+  #accordion a.panel-heading:after {
+    top: 12px; }
+  div.inputTags-list span.inputTags-item {
+    padding-right: 38px; }
+    div.inputTags-list span.inputTags-item i {
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      font-size: 1.25em;
+      font-style: normal;
+      padding-left: 3px; } }
 

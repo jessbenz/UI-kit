@@ -14,7 +14,8 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-textarea {
+textarea,
+select {
     border: 1px solid $input-border-color;
     @include border-radius(3px);
     padding: 3px 7px;
@@ -55,6 +56,7 @@ input[type="submit"],
     background: $primary-color-1;
     border: 1px solid $primary-color-1; /* if you want a bordered button just change this border colour & make the background white or whatever */
     color: white;
+    font-size: 1em;
     line-height: 1.5em;
     @include border-radius(4px);
 }
@@ -74,8 +76,7 @@ input[type="button"]:disabled,
 input[type="reset"]:disabled,
 input[type="submit"]:disabled,
 .btn.disabled,
-.round-btn.disabled,
-.round-btn:disabled {
+.round-btn.disabled {
     background: $disabled-color;
     border-color: $disabled-color;
     @include opacity(1);
@@ -199,7 +200,8 @@ hr {
     input[type="text"],
     input[type="password"],
     input[type="email"],
-    textarea {
+    textarea,
+    select {
         width: 100%;
     }
     .chosen-container {
@@ -439,8 +441,9 @@ hr {
             @include glyphicon;
             content: "\e259";
             position: absolute;
-            top: 6px;
+            top: 50%;
             right: 7px;
+            margin-top: -0.5em;
             pointer-events: none;
         }
     }
@@ -731,6 +734,7 @@ table.styled-table {
     }
 }
 .tabletolist {
+    font-size: 1em !important;
     > li span.titles {
         background-color: $table-th-background-color;
         border: 1px solid $table-th-border-color;
@@ -746,6 +750,11 @@ table.styled-table {
     ul > li .row_data  {
         font-weight: normal !important;
         line-height: 1.4em;
+        font-size: 1em;
+    }
+    ul > li .row_headers {
+        font-size: 1em !important;
+        font-weight: normal;
     }
     > li > ul > li.cf {
         padding: 6px 10px;
@@ -868,5 +877,125 @@ table.styled-table {
         a {
             display: inline-block;
         }
+    }
+}
+@media (max-width: 600px) {
+    .title-bar {
+        form.search {
+            float: none;
+            margin-top: -15px;
+        }
+        .alert {
+            margin-top: 3px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 17px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea,
+    select,
+    .chosen-container .chosen-single,
+    .date .clear-date,
+    .date .calendar-icon {
+        height: 38px;
+    }
+    .chosen-container .chosen-single {
+        padding: 5px 11px;
+    }
+    .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+        .chosen-single {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            height: 24px;
+            b::after {
+                top: 50%;
+                right: 7px;
+            }
+        }
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    button, input[type="button"],
+    input[type="reset"],
+    input[type="submit"],
+    .btn,
+    .round-btn {
+        line-height: 1.6em;
+        padding: 4px 12px 6px 12px;
+    }
+    .input-btn-with-icon .round-btn,
+    .round-btn {
+        width: 2.65em;
+        height: 2.6em;
+    }
+    .title-bar form.search .round-btn {
+        font-size: .9em;
+        margin-top: 0;
+    }
+    .date .clear-date,
+    .date .calendar-icon {
+        min-width: 38px;
+    }
+    .date .clear-date:after {
+        vertical-align: top;
+        top: 50%;
+        margin-top: -0.45em;
+    }
+    .date .calendar-icon {
+        padding: 9px 5px;
+        font-size: 1.1em;
+    }
+    .date .datepicker {
+        padding-left: 38px;
+        padding-right: 34px;
+    }
+    .ui-datepicker .ui-datepicker-header {
+        height: 40px;
+    }
+    .ui-datepicker .ui-datepicker-header .ui-icon::after {
+        margin-top: -23px;
+    }
+    .ui-datepicker table.ui-datepicker-calendar td a {
+        padding: 0.2em;
+        line-height: 1.4em;
+    }
+    .nice-checkbox,
+    .nice-radio {
+        width: 26px;
+        height: 26px;
+        margin-bottom: 5px;
+        label:after {
+            font-size: 1em;
+            top: 2px;
+            left: 2px;
+        }
+    }
+    .add-on {
+        padding-top: 8px;
+    }
+    #accordion a.panel-heading:after {
+        top: 12px;
+    }
+    div.inputTags-list span.inputTags-item {
+        padding-right: 38px;
+         i {
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            font-size: 1.25em;
+            font-style: normal;
+            padding-left: 3px;
+         }
     }
 }
